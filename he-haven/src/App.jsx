@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import React from 'react';
+import HeHaven from './components/HeHaven';
 import './App.css'
 
 function App() {
@@ -6,6 +8,9 @@ function App() {
 
   return (
     <>
+    <div className="App">
+      <HeHaven />
+    </div>
     </>
   )
 }
