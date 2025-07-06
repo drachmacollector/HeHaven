@@ -167,28 +167,66 @@
           <p>Rest assured, we're here to support you and we believe that access to such services should be freely available. Share a bit about yourself, and we'll connect you with one of our volunteers who is ready to lend a listening ear. Feel free to open up about whatever has been weighing on your mind.</p>
     </div>
 
-    <form id="appointmentForm" role="form" class="php-email-form">
-      <div class="row">
-        <div class="col-md-4 form-group">
-          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-        </div>
-        <div class="col-md-4 form-group mt-3 mt-md-0">
-          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-        </div>
-        <div class="col-md-4 form-group mt-3 mt-md-0">
-          <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required>
-        </div>
-      </div>
-      <div class="form-group mt-3">
-        <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-      </div>
-      <div class="mb-3">
-        <div class="loading" style="display: none;">Loading</div>
-        <div class="error-message" style="display: none;"></div>
-        <div class="sent-message" style="display: none;">Your appointment request has been sent successfully. Thank you!</div>
-      </div>
-      <div class="text-center"><button type="submit">Make an Appointment</button></div>
-    </form>
+<form id="appointmentForm" role="form" class="php-email-form">
+  <div class="row">
+    <div class="col-md-4 form-group">
+      <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+    </div>
+    <div class="col-md-4 form-group mt-3 mt-md-0">
+      <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required>
+    </div>
+    <div class="col-md-4 form-group mt-3 mt-md-0">
+      <input type="tel" name="phone" class="form-control" id="phone" placeholder="Your Phone" required>
+    </div>
+  </div>
+
+  <!-- new row: date + time + topic -->
+  <div class="row mt-3">
+    <div class="col-md-4 form-group">
+      <label for="date">Date</label>
+      <input type="date" name="date" class="form-control" id="date" required>
+    </div>
+    <div class="col-md-4 form-group">
+      <label for="time">Time Slot</label>
+      <select name="time" id="time" class="form-control" required>
+        <option value="">Select a Time</option>
+        <option>09:00 AM</option>
+        <option>11:00 AM</option>
+        <option>02:00 PM</option>
+        <option>04:00 PM</option>
+      </select>
+    </div>
+    <div class="col-md-4 form-group">
+      <label for="topic">Topic</label>
+      <select name="topic" id="topic" class="form-control" required>
+        <option value="">Select Topic</option>
+        <option>Stress & Anxiety</option>
+        <option>Depression</option>
+        <option>Relationship</option>
+        <option>Career</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group mt-3">
+    <textarea name="message" class="form-control" rows="5" placeholder="Message (Optional)"></textarea>
+  </div>
+  <div class="mb-3">
+    <div class="loading" style="display: none;">Loading…</div>
+    <div class="error-message" style="display: none;color: red;"></div>
+    <div class="sent-message" style="display: none;color: green;">
+      Your appointment request has been sent successfully. Thank you!
+    </div>
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary">Make an Appointment</button>
+  </div>
+</form>
+
+<!-- at the end of body: point to your modules -->
+<script type="module" src="firebase.js"></script>
+<script type="module" src="main.js"></script>
+
   </div>
 </section>
 
@@ -313,9 +351,9 @@
 
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/therapists/1.webp" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/therapists/dr-house.png" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Dr. Shaun Murphy</h4>
+                <h4>Dr. Gregory House</h4>
                 <span>Addiction therapist</span>
                 <p>Nonsensical questions usually imply sarcasm, which I've found people often answer sarcastically.</p>
                 <div class="social">
@@ -330,9 +368,9 @@
 
           <div class="col-lg-6 mt-4 mt-lg-0">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/therapists/2.webp" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/therapists/dr-doug-ross.png" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Dr. Jackson Han</h4>
+                <h4>Dr. Doug Ross</h4>
                 <span>Clinical therapist</span>
                 <p>If either of us are making decisions based on our personal experiences, we're making the wrong decisions.</p> 
                 <div class="social">
@@ -347,7 +385,7 @@
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/therapists/3.webp" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/therapists/hannibal-lecter.png" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Dr. Hannibal Lecter</h4>
                 <span>Cognitive therapist</span>
@@ -463,7 +501,7 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="assets/testimonials/user.webp" class="testimonial-img" alt="">
+                  <img src="assets/meganfox.jpg" class="testimonial-img" alt="">
                   <h3>Anonymous User</h3>
                   <h4>Ceo &amp; Founder</h4>
                   <p>
@@ -478,7 +516,7 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="assets/testimonials/user.webp" class="testimonial-img" alt="">
+                  <img src="assets/meganfox.jpg" class="testimonial-img" alt="">
                   <h3>Anonymous User</h3>
                   <h4>Designer</h4>
                   <p>
@@ -493,7 +531,7 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="assets/testimonials/user.webp" class="testimonial-img" alt="">
+                  <img src="assets/meganfox.jpg" class="testimonial-img" alt="">
                   <h3>Anonymous User</h3>
                   <h4>Store Owner</h4>
                   <p>
@@ -508,7 +546,7 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="assets/testimonials/user.webp" class="testimonial-img" alt="">
+                  <img src="assets/meganfox.jpg" class="testimonial-img" alt="">
                   <h3>Anonymous User</h3>
                   <h4>Freelancer</h4>
                   <p>
@@ -523,7 +561,7 @@
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="assets/testimonials/user.webp" class="testimonial-img" alt="">
+                  <img src="assets/meganfox.jpg" class="testimonial-img" alt="">
                   <h3>Anonymous User</h3>
                   <h4>Entrepreneur</h4>
                   <p>
@@ -668,64 +706,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <script src="main.js"></script>
-
-
-  <!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js"></script>
-
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyDqL04gma1_eybExI3RVz_eY3K5Yt1gfxU",
-    authDomain: "hehaven-78909.firebaseapp.com",
-    projectId: "hehaven-78909",
-    storageBucket: "hehaven-78909.firebasestorage.app",
-    messagingSenderId: "53938473551",
-    appId: "1:53938473551:web:9583caec2f87f0c90f383a",
-    measurementId: "G-XNYZ19ZRYZ"
-  };
-
-  const app = firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-
-  const form = document.getElementById('appointmentForm');
-  const loading = document.querySelector('.loading');
-  const errorMessage = document.querySelector('.error-message');
-  const sentMessage = document.querySelector('.sent-message');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    loading.style.display = 'block';
-    errorMessage.style.display = 'none';
-    sentMessage.style.display = 'none';
-
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const phone = form.phone.value.trim();
-    const message = form.message.value.trim();
-
-    try {
-      await db.collection('appointments').add({
-        name,
-        email,
-        phone,
-        message,
-        submittedAt: new Date()
-      });
-
-      loading.style.display = 'none';
-      sentMessage.style.display = 'block';
-      form.reset();
-    } catch (err) {
-      console.error('Firebase error:', err);
-      loading.style.display = 'none';
-      errorMessage.textContent = 'An error occurred. Please try again.';
-      errorMessage.style.display = 'block';
-    }
-  });
-</script>
+<!-- at the end of your body (just your snippet + these two lines) -->
+<script type="module" src="firebase.js"></script>
+<script type="module" src="main.js"></script>
 
 
 </body>
